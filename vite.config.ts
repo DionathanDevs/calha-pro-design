@@ -6,10 +6,41 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+function getBasePath() {
+  if (process.env.BASE_PATH) {
+    return process.env.BASE_PATH.endsWith("/")
+      ? process.env.BASE_PATH
+      : `${process.env.BASE_PATH}/`;
+  }
+  if (process.env.GITHUB_REPOSITORY) {
+    const repo = process.env.GITHUB_REPOSITORY.split("/")[1];
+    return `/${repo}/`;
+  }
+  if (process.env.NODE_ENV === "production") {
+    return "/calha-pro-design/";
+  }
+  return "/";
+}
+
+const base = getBasePath();
+
 export default defineConfig({
+  vite: {
+    base,
+    preview: {
+      outDir: "dist/client",
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    router: {
+      basepath: base,
+    },
+    prerender: {
+      enabled: true,
+    },
   },
+  nitro: false,
 });

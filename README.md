@@ -104,3 +104,21 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Publicação no GitHub Pages
+
+O projeto já está configurado para publicação no GitHub Pages de forma estática pré-renderizada:
+
+### Método 1: Automático via GitHub Actions (Recomendado)
+
+1. Vá até o seu repositório no GitHub em **Settings** > **Pages**.
+2. Em **Build and deployment** > **Source**, selecione **GitHub Actions**.
+3. Ao fazer `push` para a branch `main`, o fluxo `.github/workflows/deploy.yml` fará o build e a publicação automaticamente.
+
+### Método 2: Manual via terminal
+
+Se preferir publicar manualmente para a branch `gh-pages`:
+
+```sh
+npm run deploy
+```
