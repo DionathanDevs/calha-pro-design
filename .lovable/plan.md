@@ -16,7 +16,7 @@ Criar uma landing page longa, mobile-first, em português, para gerar pedidos de
 - Botão flutuante do WhatsApp no canto inferior esquerdo em todas as telas.
 
 ## Identidade visual
-- Direção industrial premium: azul-noturno, superfícies grafite, branco suave e laranja de alta visibilidade.
+- Direção industrial premium: azul-noturno, superfícies grafite, branco suave e vermelho vibrante de alta visibilidade.
 - Tipografia sem serifa sólida e moderna, carregada pelo documento.
 - Tokens semânticos em CSS para cores, sombras, tipografia e estados interativos.
 - Imagens próprias geradas para mostrar calhas, telhados e acabamentos com aparência realista e coerente.
